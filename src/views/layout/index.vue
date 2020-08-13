@@ -17,6 +17,7 @@
         :collapse-transition="false"
       >
         <el-menu-item
+          v-show="item.meta.title !== '编辑文章'"
           v-for="(item, index) in layoutPath"
           :key="index"
           :index="item.path"
@@ -48,13 +49,6 @@
           <!-- 具名插槽：设置下拉菜单的内容 -->
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>设置</el-dropdown-item>
-            <!--
-              并不是所有的组件都支持@click
-              el-button组件支持@click是因为它内部自己做了处理。
-              如果某个组件加@click不能用，则补充一个.native 修饰符。
-              native：原生的。
-              .native 修饰符的作用是把事件添加到原生的dom上。
-            -->
             <el-dropdown-item @click.native="hQuit">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -92,12 +86,11 @@ export default {
     setUserProfile () {
       userGetProfile()
         .then(res => {
-          console.log(res)
+          // console.log(res)
           // 注意： res.data.data 这里有两层.data才能取回真正的数据
-          this.user = res.data.data
+          this.user = res
         })
         .catch(err => {
-          console.dir(err)
           // 401表示没有权限
           if (err.response.status === 401) {
             //

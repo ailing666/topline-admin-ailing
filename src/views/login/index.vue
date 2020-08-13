@@ -1,5 +1,5 @@
 <template>
-  <div class='login-container'>
+  <div class="login-container">
     <div class="login-form-wrap">
       <!-- logo部分 -->
       <div class="login-head">
@@ -13,20 +13,34 @@
       <el-form class="login-form" :model="user" ref="myform" :rules="rules">
         <el-form-item prop="mobile">
           <!-- 手机号 -->
-          <el-input v-model.trim="user.mobile" placeholder="请输入手机号"></el-input>
+          <el-input
+            v-model.trim="user.mobile"
+            placeholder="请输入手机号"
+          ></el-input>
         </el-form-item>
         <el-form-item prop="code">
           <!-- 验证号 -->
-          <el-input v-model.trim="user.code" placeholder="请输入验证号"></el-input>
+          <el-input
+            v-model.trim="user.code"
+            placeholder="请输入验证号"
+          ></el-input>
         </el-form-item>
 
         <el-form-item prop="agree">
-          <el-checkbox v-model="user.agree" >我已阅读并同意用户协议和隐私条款</el-checkbox>
+          <el-checkbox v-model="user.agree"
+            >我已阅读并同意用户协议和隐私条款</el-checkbox
+          >
         </el-form-item>
 
         <el-form-item>
           <!-- 按钮上有一个loading属性 -->
-          <el-button :loading="loginLoading" @click="hLogin" class="login-btn" type="primary">登陆</el-button>
+          <el-button
+            :loading="loginLoading"
+            @click="hLogin"
+            class="login-btn"
+            type="primary"
+            >登陆</el-button
+          >
         </el-form-item>
       </el-form>
     </div>
@@ -53,7 +67,11 @@ export default {
           // $: 以什么结束
           // [35789] : 表示第二位是35789中的一个。
           // \d{9} : 表示9个数字
-          { pattern: /^1[35789]\d{9}$/, message: '手机号格式不对', trigger: 'change' }
+          {
+            pattern: /^1[35789]\d{9}$/,
+            message: '手机号格式不对',
+            trigger: 'change'
+          }
         ],
         // 手机验证码，规则必须是6位数字
         code: [
@@ -111,7 +129,6 @@ export default {
       } catch (err) {
         // 登陆出错了
         this.$message.error('登陆出错了')
-        console.log(err)
         // 关闭loading状态
         this.loginLoading = false
       }
@@ -149,7 +166,6 @@ export default {
       // validate 是别人提供的函数，我们直接来用
       // 传入一个回调就行，第一个参数就是验证的结果
       this.$refs.myform.validate(valid => {
-        console.log('验证结果', valid)
         if (valid) {
           // 验证成功
           this.login()
@@ -161,7 +177,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 // 铺满整屏
 .login-container {
   position: fixed;
@@ -170,10 +185,10 @@ export default {
   right: 0;
   bottom: 0;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../../assets/login_bg.jpg") no-repeat;
+  background: url('../../assets/login_bg.jpg') no-repeat;
   background-size: cover;
   .login-form-wrap {
     min-width: 300px;
@@ -185,7 +200,7 @@ export default {
       .logo {
         width: 200px;
         height: 57px;
-        background: url("../../assets/logo_index.png") no-repeat;
+        background: url('../../assets/logo_index.png') no-repeat;
         background-size: contain;
       }
     }

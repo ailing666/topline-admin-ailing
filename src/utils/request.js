@@ -52,5 +52,24 @@ instance.interceptors.request.use(
   }
 )
 
+// 添加响应拦截器
+instance.interceptors.response.use(
+  function (response) {
+    if (
+      response.status === 200 ||
+      response.status === 201 ||
+      response.status === 204
+    ) {
+      return response.data.data
+    } else {
+      return Promise.reject(new Error(response.data.message))
+    }
+  },
+  function (error) {
+    // 对响应错误做点什么
+    return Promise.reject(error)
+  }
+)
+
 // 默认导出
 export default instance

@@ -8,9 +8,7 @@
 <script>
 export default {
   name: 'MyBreadcrumb',
-  created () {
-    window.console.log(this.$route)
-  }
+  created () {}
 }
 </script>
 

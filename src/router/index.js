@@ -72,6 +72,14 @@ const routes = [
         }
       },
       {
+        path: '/layout/addArticle/:id',
+        component: AddArticle,
+        meta: {
+          title: '编辑文章',
+          icon: 'el-icon-s-promotion'
+        }
+      },
+      {
         path: '/layout/comment',
         component: Comment,
         meta: {

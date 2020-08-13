@@ -5,7 +5,8 @@ import App from './App.vue'
 import ElementUI from 'element-ui'
 // 引入样式
 import 'element-ui/lib/theme-chalk/index.css'
-
+// 日期处理
+import MyPlugins from '@/plugins/time.js'
 // 脚手架工具自动创建的路由配置文件
 // 由于目录下有一个名为index.js 则可以简写：省略index.js
 //     完整： import XXX from './router/index.js'
@@ -16,6 +17,7 @@ import GlobalCom from './components/index.js'
 // 以Vue插件的格式来引入elementUI
 Vue.use(ElementUI)
 Vue.use(GlobalCom)
+Vue.use(MyPlugins)
 Vue.config.productionTip = false
 // Vue是一个构造器，它有一个原型对象prototype
 // Vue.prototype.$eventBus 给Vue的原型对象补充一个名为$eventBus的属性
