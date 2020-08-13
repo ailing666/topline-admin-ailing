@@ -1,0 +1,24 @@
+.DS_Store
+node_modules
+
+# 取消对/dist目录的忽略。 让git来管理dist目录。
+# 只有让git来管理这个目录，才可能把它推到远程仓库。
+ /dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
